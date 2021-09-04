@@ -3,9 +3,12 @@ import morgan from 'morgan';
 import pkg from '../package.json';
 const app = express();
 import productsRoutes from "./routes/products.routes";
+import authRoutes from "./routes/auth.routes";
+import createRoles from './libs/initialSetup';
 app.set('pkg', pkg);
 app.use(morgan('dev'));
 app.use(express.json());
+createRoles();
 
 app.get('/', (req, res) => {
     res.json({
@@ -15,6 +18,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use('/products', productsRoutes);
+app.use('/api/products', productsRoutes);
+app.use('/api/auth', authRoutes);
 
 export default app;
