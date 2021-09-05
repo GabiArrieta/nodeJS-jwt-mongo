@@ -1,5 +1,6 @@
 import app from './app';
+require('dotenv').config();
 import './database';
 
-app.listen(4000);
-console.log('server listen on port', 4000);
+app.listen(process.env.PORT || 3000);
+console.log('server listen on port', process.env.PORT);
