@@ -1,4 +1,9 @@
-import {Router} from 'express';
-const router = Router;
+const { Router } = require('express');
+const router = Router();
 
-export default Router;
+import * as userController from '../controllers/user.controller.js';
+import { authJwt } from '../middlewares';
+
+router.post('/', [authJwt.verifyToken,authJwt.isAdmin],userController.createUser); 
+
+export default router;
