@@ -30,7 +30,6 @@ export const isModerator = async (req, res, next) => {
     //console.log(roles);
 
     for(let i = 0; i < roles.length; i++){
-        console.log(roles[i]);
         if(roles[i].name === "moderator"){
             next();
             return;
