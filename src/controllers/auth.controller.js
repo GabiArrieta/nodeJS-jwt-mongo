@@ -20,7 +20,7 @@ if(roles){
     newUser.roles = [role._id];
 }
 const saveUser = await newUser.save();
-console.log(saveUser);
+//console.log(saveUser);
 const token = jwt.sign({id: saveUser._id}, config.SECRET, {
     expiresIn: 86400 //24 hs
 });
